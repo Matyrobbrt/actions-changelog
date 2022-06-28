@@ -8,14 +8,14 @@ run();
 async function run() {
   const owner = context.repo.owner;
   const repo = context.repo.repo;
-  const baseRequest = { owner, repo };
   const branch = core.getInput("branch")
     ? core.getInput("branch")
     : context.ref.split("/").pop();
 
   // Request the last completed workflow run for this branch
   let request = await getOctokit(process.env['GITHUB_TOKEN']).actions.listWorkflowRuns({
-    ...baseRequest,
+    owner: owner,
+    repo: repo,
     workflow_id,
     branch: branch,
     per_page: 1,
