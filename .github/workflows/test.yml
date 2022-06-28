@@ -11,6 +11,7 @@ jobs:
       image: eclipse-temurin:18-jdk
       options: --user root
     steps:
+      - run: apt update && apt install git -y && git --version
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
