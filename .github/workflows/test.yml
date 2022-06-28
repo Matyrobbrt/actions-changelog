@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - uses: Matyrobbrt/actions-changelog@2766f7143c6b8ef417cc3e5375c8b8a17935062f
+      - uses: Matyrobbrt/actions-changelog@00581a8d85ddfbd4c1c1d7e0290e8bd0b50fee84
         id: changelog
         with:
           branch: testing
