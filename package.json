@@ -1,0 +1,32 @@
+{
+  "name": "actions-changelog",
+  "version": "1.0.0",
+  "description": "A GitHub action that creates changelogs",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx ncc build src/index.js -m -o dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matyrobbrt/actions-changelog.git"
+  },
+  "keywords": [
+    "gh-actions"
+  ],
+  "author": "Matyrobbrt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Matyrobbrt/actions-changelog/issues"
+  },
+  "homepage": "https://github.com/Matyrobbrt/actions-changelog#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/exec": "^1.1.1",
+    "@actions/github": "^5.0.1",
+    "@octokit/core": "^3.6.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.33.1"
+  }
+}
