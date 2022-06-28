@@ -18,6 +18,6 @@ jobs:
         id: changelog
         with:
           branch: testing
-          workflow_id: release.yml
+          workflow_id: test.yml
           token: ${{ github.token }}
       - run: echo "${{ steps.changelog.outputs.changelog }}"
