@@ -1,5 +1,5 @@
 name: Test
-on: [workflow_dispatch] # Manual trigger
+on: [push] 
 
 permissions:
   contents: write
