@@ -1,0 +1,22 @@
+name: Test
+on: [workflow_dispatch] # Manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    container:
+      image: eclipse-temurin:18-jdk
+      options: --user root
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: Matyrobbrt/actions-changelog@41757324e69e1fe227e4a1693605780c5b94fd26
+        id: changelog
+        with:
+          branch: testing
+          workflow_id: release.yml
+      - run: echo "${{ steps.changelog.outputs.changelog }}"
