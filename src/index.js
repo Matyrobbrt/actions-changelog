@@ -1,4 +1,4 @@
-import { context } from "@actions/github";
+import { context, getOctokit } from "@actions/github";
 import { setOutput } from "@actions/core";
 import { exec } from "@actions/exec";
 import { which } from "@actions/io";
@@ -14,7 +14,7 @@ async function run() {
     : context.ref.split("/").pop();
 
   // Request the last completed workflow run for this branch
-  let request = await github.actions.listWorkflowRuns({
+  let request = await getOctokit(process.env['GITHUB_TOKEN']).actions.listWorkflowRuns({
     ...baseRequest,
     workflow_id,
     branch: branch,
