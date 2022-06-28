@@ -14,10 +14,10 @@ async function run() {
   const token = getInput("token") ? getInput("token") : process.env['GITHUB_TOKEN'];
 
   // Request the last completed workflow run for this branch
-  let request = await getOctokit(token).actions.listWorkflowRuns({
+  let request = await getOctokit(token).rest.actions.listWorkflowRuns({
     owner: owner,
     repo: repo,
-    workflow_id,
+    workflow_id: getInput("workflow_id"),
     branch: branch,
     per_page: 1,
     status: "success"
