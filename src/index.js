@@ -22,7 +22,6 @@ async function run() {
     per_page: 1,
     status: "success"
   });
-  console.log(request);
 
   var changelog;
 
@@ -38,7 +37,8 @@ async function run() {
     );
   }
 
-  console.log(changelog);
+  console.log(`Generated changelog: 
+  ${changelog}`);
   setOutput("changelog", changelog);
 }
 
@@ -50,10 +50,10 @@ async function generateChangelogSinceRun(lastRun, comRegex) {
     throw new Error("Failed to get previous commit");
   }
 
-  console.log({
-    previousCommit,
-    releaseCommit,
-  });
+  console.log(`
+    Previous commit: ${previousCommit};
+    Release commit: ${releaseCommit}
+  `);
 
   if (previousCommit == releaseCommit) {
     console.log("Previous commit is equal to current commit");
