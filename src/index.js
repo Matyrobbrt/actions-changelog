@@ -22,6 +22,7 @@ async function run() {
     per_page: 1,
     status: "success"
   });
+  console.log(request);
 
   var changelog;
 
