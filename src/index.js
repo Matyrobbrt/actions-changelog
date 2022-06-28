@@ -19,7 +19,7 @@ async function run() {
     workflow_id,
     branch: branch,
     per_page: 1,
-    status: "success",
+    status: "success"
   });
 
   var changelog;
@@ -41,7 +41,7 @@ async function run() {
 }
 
 async function generateChangelogSinceRun(lastRun, comRegex) {
-  let previousCommit = lastRun.head_commit?.id;
+  let previousCommit = lastRun.head_commit.id;
   let releaseCommit = context.sha;
 
   if (!previousCommit) {
