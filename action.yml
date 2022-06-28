@@ -5,6 +5,10 @@ inputs:
     description: 'The ID of the workflow'
     required: true
     default: "***"
+  token:
+    description: 'The GitHub token to use.'
+    required: false
+    default: ${{ secrets.GITHUB_TOKEN }}
   branch:
     description: 'The branch to create a changelog for.'
     required: false
