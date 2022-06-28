@@ -1,5 +1,5 @@
 import { context, getOctokit } from "@actions/github";
-import { setOutput } from "@actions/core";
+import { setOutput, getInput } from "@actions/core";
 import { exec } from "@actions/exec";
 import { which } from "@actions/io";
 
@@ -8,8 +8,8 @@ run();
 async function run() {
   const owner = context.repo.owner;
   const repo = context.repo.repo;
-  const branch = core.getInput("branch")
-    ? core.getInput("branch")
+  const branch = getInput("branch")
+    ? getInput("branch")
     : context.ref.split("/").pop();
 
   // Request the last completed workflow run for this branch
@@ -32,7 +32,7 @@ async function run() {
   } else {
     changelog = await generateChangelogSinceRun(
       runs[0],
-      core.getInput("commit_regex")
+      getInput("commit_regex")
     );
   }
 
