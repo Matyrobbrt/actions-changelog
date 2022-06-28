@@ -14,10 +14,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - uses: Matyrobbrt/actions-changelog@3ee9dea8ff411dee9e57654c64d655452cf000ac
+      - uses: Matyrobbrt/actions-changelog@d265960c72508e443c7b82cb65b3a679e45051e8
         id: changelog
         with:
           branch: testing
           workflow_id: release.yml
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ github.token }}
       - run: echo "${{ steps.changelog.outputs.changelog }}"
